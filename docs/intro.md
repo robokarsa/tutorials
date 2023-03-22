@@ -3,6 +3,10 @@ sidebar_position: 1
 slug: /
 ---
 
+<head>
+  <meta property="og:description" content="Tutorial dan Panduan Belajar Robotika dan Pemrograman Gratis" />
+</head>
+
 # Pengantar
 
 Halo, pengunjung RoboKarsa. Selamat datang di dokumentasi kami yang sederhana. Apa sih bagusnya RoboKarsa? kalau dibandingkan dengan yang lain sih, RoboKarsa bukan apa-apa. Tapi kalau boleh, kami juga ingin menyebutkan kelebihan kami sendiri dong.
