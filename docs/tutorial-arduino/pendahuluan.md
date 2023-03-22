@@ -6,9 +6,11 @@ sidebar_position: 1
 
 Karena dokumentasi ini bertujuan untuk membantu mereka yang belajar bersama RoboKarsa, maka dokumentasi ini tidak akan membahas secara detil mengenai sejarah **Arduino**, namun cukup untuk membuat teman-teman semua memahami apa itu **Arduino** dalam waktu singkat.
 
-Pada dasarnya, dokumentasi yang ada pada situs ini merupakan parafrase dan disaring dari berbagai sumber di internet. Namun sumber utama yang digunakan sebagai sumber untuk pembuatan dokumentasi ini berasal dari situs resmi Arduino itu sendiri. Teman-teman bisa mengunjungi dokumentasi resmi Arduino melalui tautan **[ini](https://docs.arduino.cc/learn/starting-guide/getting-started-arduino#setup)**.
+Pada dasarnya, dokumentasi yang ada pada situs ini merupakan parafrase dan disaring dari berbagai sumber di internet. Namun sumber utama yang digunakan sebagai sumber untuk pembuatan dokumentasi ini berasal dari situs resmi Arduino itu sendiri. Teman-teman bisa mengunjungi dokumentasi resmi Arduino melalui tautan <a target="_blank" rel="noopener noreferrer" href="https://docs.arduino.cc/learn/starting-guide/getting-started-arduino#setup">**Ini**</a>.
 
-Kalau teman-teman penasaran dan ingin tahu lebih lanjut mengenai sejarah dan awal mula **Arduino**, teman-teman bisa membacanya lebih lanjut pada situs resmi nya pada tautan **[ini](https://www.arduino.cc/en/about#what-is-arduino)** atau bisa juga melalui laman Wikipedia pada tautan **[ini](https://en.wikipedia.org/wiki/Arduino#History)**.
+Kalau teman-teman penasaran dan ingin tahu lebih lanjut mengenai sejarah dan awal mula **Arduino**, teman-teman bisa membacanya lebih lanjut pada situs resmi nya pada tautan <a target="_blank" rel="noopener noreferrer" href="https://www.arduino.cc/en/about#what-is-arduino">**Ini**</a>.
+
+atau bisa juga melalui laman Wikipedia pada tautan <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Arduino#History">**Ini**</a>.
 
 Topik **Pendahuluan** ini akan berisi perkenalan apa itu Arduino, Perangkat Keras Arduino (terutama perangkat Arduino yang akan digunakan sebagai perangkat utama pada kelas RoboKarsa), Perangkat Lunak Arduino, dan Mengapa harus Arduino?
 

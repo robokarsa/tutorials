@@ -147,6 +147,13 @@ const config = {
         minHeadingLevel: 2,
         maxHeadingLevel: 5,
       },
+      announcementBar: {
+        id: "Update Date",
+        content: "Update Terakhir: 24 Maret 2023",
+        backgroundColor: "#4a96de",
+        textColor: "#ffff",
+        isCloseable: false,
+      },
     }),
 };
 

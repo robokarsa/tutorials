@@ -60,7 +60,7 @@ Papan Mikrokontroller yang dibuat oleh **Arduino** tidak hanya Arduino Uno saja,
 
 </div>
 
-Karena Arduino memiliki banyak produk, sehingga tidak mungkin dijabarkan semua produk tersebut secara satu-persatu. Jika teman-teman penasaran apa saja produk yang dibuat oleh Arduino dan fungsi serta fitur-fiturnya, teman-teman dapat mengakses tautan **[ini](https://www.arduino.cc/en/hardware)**.
+Karena Arduino memiliki banyak produk, sehingga tidak mungkin dijabarkan semua produk tersebut secara satu-persatu. Jika teman-teman penasaran apa saja produk yang dibuat oleh Arduino dan fungsi serta fitur-fiturnya, teman-teman dapat mengakses tautan <a target="_blank" rel="noopener noreferrer" href="https://www.arduino.cc/en/hardware">**Ini**</a>.
 
 Namun, karena di RoboKarsa, kita akan menggunakan Arduino Nano sebagai komponen utama kita untuk belajar, kita akan menceritakan beberapa detail tentang Arduino Nano agar teman-teman bisa menggunakannya untuk belajar bersama RoboKarsa nantinya. Di bawah ini adalah gambar dari Arduino Nano yang akan sering kita lihat selama belajar bersama RoboKarsa nantinya.
 
@@ -120,6 +120,8 @@ Dari bentuk nya yang seperti paku, Pin pada gambar tersebut merupakan pin berjen
 <div width="100%" style={{textAlign: 'center'}}>
 
 **[Sumber Gambar ](https://www.instructables.com/RS485-Serial-Communication-Between-Arduino-Mega-an/)**
+
+<a target="_blank" rel="noopener noreferrer" href="https://www.instructables.com/RS485-Serial-Communication-Between-Arduino-Mega-an">**Ini**</a>
 
 </div>
 

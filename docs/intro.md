@@ -58,7 +58,9 @@ Apa saja yang kita butuhkan untuk kelas Robotika dan Pemrograman di RoboKarsa?
 Pada dasarnya, kita membutuhkan tiga hal yang paling utama.
 
 - Komputer atau Laptop 💻
-  - Perangkat komputer atau laptop yang kita butuhkan tidak harus canggih-canggih sekali. Kita cukup memiliki laptop atau komputer dengan RAM minimal 256 MB ke atas dan CPU minimal Pentium 4 ke atas. Kalau butuh saran rekomendasi laptop 2 jutaan yang terjangkau, teman-teman bisa tonton video **[Ini](https://www.youtube.com/watch?v=Jn2cb5GzFNc)**.
+
+  - Perangkat komputer atau laptop yang kita butuhkan tidak harus canggih-canggih sekali. Kita cukup memiliki laptop atau komputer dengan RAM minimal 256 MB ke atas dan CPU minimal Pentium 4 ke atas. Kalau butuh saran rekomendasi laptop 2 jutaan yang terjangkau, teman-teman bisa tonton video <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=Jn2cb5GzFNc">**Ini**</a>.
+
 - Koneksi Internet 📡
   - Tanpa koneksi internet pun sebenarnya bisa. Namun karena kita membutuhkan internet untuk mendownload software Arduino IDE, serta untuk membuka website dokumentasi ini.
 - Perangkat dan Peralatan Pendukung 🛠
