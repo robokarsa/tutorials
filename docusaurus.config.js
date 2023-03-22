@@ -68,6 +68,7 @@ const config = {
         logo: {
           alt: "RoboKarsa Logo",
           src: "img/logo-robokarsa.svg",
+          href: "https://robokarsa.github.io",
         },
         items: [
           // {
