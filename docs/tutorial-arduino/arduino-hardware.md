@@ -119,9 +119,7 @@ Dari bentuk nya yang seperti paku, Pin pada gambar tersebut merupakan pin berjen
 
 <div width="100%" style={{textAlign: 'center'}}>
 
-**[Sumber Gambar ](https://www.instructables.com/RS485-Serial-Communication-Between-Arduino-Mega-an/)**
-
-<a target="_blank" rel="noopener noreferrer" href="https://www.instructables.com/RS485-Serial-Communication-Between-Arduino-Mega-an">**Ini**</a>
+<a target="_blank" rel="noopener noreferrer" href="https://www.instructables.com/RS485-Serial-Communication-Between-Arduino-Mega-an"><strong>Sumber Gambar</strong></a>
 
 </div>
 
