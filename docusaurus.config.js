@@ -21,6 +21,7 @@ const config = {
   organizationName: "robokarsa", // Usually your GitHub org/user name.
   projectName: "tutorials", // Usually your repo name.
   deploymentBranch: "gh-pages",
+  trailingSlash: false,
 
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
