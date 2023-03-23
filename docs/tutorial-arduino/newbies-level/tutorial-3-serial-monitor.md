@@ -210,7 +210,7 @@ Setelah proses verifikasi teman-teman sudah berhasil dan konfigurasi Arduino IDE
 
 </p>
 
-Jika proses upload berhasil, klik ikon “Serial Monitor” IDE seperti ditunjukkan oleh gambar disamping <img src={require('./img/img3/arduino-ide-tool-bar-sermon.png').default} alt="Ultrasonic Sensors"/> yang terletak pada pojok atas kanan Arduino .
+Jika proses upload berhasil, klik ikon “Serial Monitor” IDE seperti ditunjukkan oleh gambar disamping, <img src={require('./img/img3/arduino-ide-tool-bar-sermon.png').default} alt="Ultrasonic Sensors"/>, yang terletak pada pojok atas kanan Arduino.
 
 Maka akan muncul window baru yang disebut sebagai “Serial Monitor” seperti pada gambar di bawah ini.
 
