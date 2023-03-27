@@ -56,7 +56,7 @@ Di RoboKarsa, kita akan menggunakan Arduino Nano sebagai komponen utama kita unt
 
 Pemilihan mikrokontroller Arduino Nano ini didasarkan pada harganya yang lebih terjangkau serta ukurannya yang kecil dan ringkas, namun memiliki fitur-fitur yang relatif cukup lengkap. Ada banyak komponen-komponen penting dari Arduino Nano yang harus diketahui oleh teman-teman terlebih dahulu agar bisa menggunakannya dengan baik di kelas.
 
-Komponen-komponen Arduino Nano seperti yang ditunjukkan pada gambar di bawah ini akan dijelaskan lebih detail pada topik **[Arduino Hardware](/docs/tutorial-arduino/perangkat-keras-arduino)**.
+Komponen-komponen Arduino Nano seperti yang ditunjukkan pada gambar di bawah ini akan dijelaskan lebih detail pada topik **[Arduino Hardware](/docs/tutorial-arduino/arduino-hardware.md)**.
 
 <div width="100%" style={{textAlign: 'center'}}>
 
@@ -82,7 +82,7 @@ Tentu saja, Arduino IDE juga memiliki banyak fitur-fitur yang harus teman-teman 
 
 </div>
 
-Penjelasan detail mengenai fitur-fitur dari Arduino IDE beserta bagaimana cara menginstall Arduino IDE di laptop teman-teman, bisa teman-teman lihat pada topik **[Instalasi Arduino IDE ](/docs/tutorial-arduino/instalasi-perangkat-lunak)**.
+Penjelasan detail mengenai fitur-fitur dari Arduino IDE beserta bagaimana cara menginstall Arduino IDE di laptop teman-teman, bisa teman-teman lihat pada topik **[Instalasi Arduino IDE ](/docs/tutorial-arduino/arduino-ide-software.md)**.
 
 ## Mengapa Arduino?
 

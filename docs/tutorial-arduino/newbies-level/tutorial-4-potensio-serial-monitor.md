@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Tutorial 4 - Serial Monitor dan Potensiometer
 
-Pada Pelajaran #3 sebelumnya kita telah mempelajari bagaimana Serial Monitor bekerja. Dengan Serial Monitor kita dapat menampilkan teks ataupun data yang kita inginkan ke layar laptop/komputer untuk diketahui bagaimana perubahan nilai atau perubahan aktivitas suatu komponen.
+Pada Tutorial 3 sebelumnya kita telah mempelajari bagaimana Serial Monitor bekerja. Dengan Serial Monitor kita dapat menampilkan teks ataupun data yang kita inginkan ke layar laptop/komputer untuk diketahui bagaimana perubahan nilai atau perubahan aktivitas suatu komponen.
 
 Sekarang kita akan mempelajari lebih dalam lagi fungsi Serial Monitor sembari mempelajari fungsi-fungsi pemrograman baru, yakni fungsi perintah untuk membaca input/membaca sinyal yang diberikan suatu komponen kemudian menampilkannya ke layar laptop/komputer dengan fungsi Serial Monitor.
 
@@ -63,7 +63,7 @@ Klik pada salah satu dari ketiga tombol di bawah ini untuk membuka Prasyarat, Ta
 <TabItem value="Prasyarat 🔑">
 
 - Sudah lolos Tutorial 3 - Serial Monitor
-- Sudah mempelajari Arduino Nano Expansion Board pada materi **[Arduino Nano Expansion Board](/docs/tutorial-arduino/arduino-hardware#arduino-nano-expansion-board)**
+- Sudah mempelajari Arduino Nano Expansion Board pada materi **[Arduino Nano Expansion Board](/docs/tutorial-arduino/arduino-hardware.md#arduino-nano-expansion-board)**
 
 Kalau teman-teman merasa belum memenuhi prasyarat yang dibutuhkan, diharapkan untuk membaca dan memenuhinya terlebih dahulu.
 
@@ -419,6 +419,10 @@ void loop() {
 ```
 
 Apa yang terjadi jika kita memperbesar nilai pada delay tersebut dengan cara mengubah angka 1 menjadi 1000. Cobalah kepoin gimana hasilnya.
+
+:::note Catatan
+Sebelum mengupload sketch program baru ke Arduino Nano, pastikan teman-teman menutup window Serial Monitor terlebih dahulu jika masih terbuka.
+:::
 
 Nilai delay pada proses pembacaan sensor tersebut sebenarnya bisa diatur berapapun kita inginkan. Namun terkadang membuat hasil pembacaan yang tampil pada Serial Monitor menjadi kurang presisi.
 

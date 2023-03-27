@@ -4,6 +4,7 @@ sidebar_position: 3
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import tinkerCADsimsManualBlinkLEDModules from '/tinkercad-sims-manual-blink-led-modules.mp4';
 
 # Tutorial 2 - Mengedipkan Mini Traffic Light Module 🚦
 
@@ -154,7 +155,7 @@ Untuk membantu teman-teman memahami bagaimana maksudnya, kita berikan contoh sim
 <div style={{textAlign: 'center'}}>
 
 <video width="70%" controls>
-  <source src="/tinkercad-sims-manual-blink-led-modules.mp4"/>
+  <source src={tinkerCADsimsManualBlinkLEDModules}/>
 </video>
 
 </div>
@@ -179,7 +180,7 @@ Klik pada salah satu dari ketiga tombol di bawah ini untuk membuka Prasyarat, Ta
 <TabItem value="Prasyarat 🔑">
 
 - Sudah lolos Tutorial 1 - Blink
-- Sudah mempelajari Arduino Nano Expansion Board pada materi **[Arduino Nano Expansion Board](/docs/tutorial-arduino/arduino-hardware#arduino-nano-expansion-board)**
+- Sudah mempelajari Arduino Nano Expansion Board pada materi **[Arduino Nano Expansion Board](/docs/tutorial-arduino/arduino-hardware.md#arduino-nano-expansion-board)**
 
 Kalau teman-teman merasa belum memenuhi prasyarat yang dibutuhkan, diharapkan untuk membaca dan memenuhinya terlebih dahulu.
 
@@ -191,6 +192,7 @@ Kalau teman-teman merasa belum memenuhi prasyarat yang dibutuhkan, diharapkan un
 - Memahami bagaimana menggunakan pin digital Arduino Nano
 - Mengenali fisik lampu LED
 - Mengenali deklarasi variabel
+- Mengenal lebih dalam perintah digitalWrite() dan analogWrite()
 
 </TabItem>
 
@@ -828,3 +830,248 @@ Petunjuk Tantangan 2:
 
 - Mainkan angka delay pada program.
 - Mainkan urutan logika parameter `HIGH` dan `LOW` pada perintah `digitalWrite()`
+
+### Tantangan 3
+
+Setelah melewati Tantangan 2, saatnya melanjutkan ke Tantangan 3. Pada tantangan ketiga ini, kita akan belajar perintah baru untuk menyalakan lampu selain menggunakan perintah `digitalWrite()`.
+
+Perintah `digitalWrite()` hanya bisa menyalakan dan mematikan lampu saja dengan menggunakan logika `HIGH` dan `LOW`. Selain itu, lampu akan selalu berada pada kondisi paling terang apabila dinyalakan dengan perintah `digitalWrite()`. Namun bagaimana jika kita ingin lampu yang kita nyalakan menjadi sedikit lebih redup?
+
+Arduino menyediakan perintah `analogWrite()` untuk melakukan itu. Dengan perintah `analogWrite()`, kita bisa mengatur tingkat kecerahan lampu yang ingin kita nyalakan. Entah itu terang banget, redup, ataupun gelap.
+
+Pada `digitalWrite()` kita menggunakan logika `HIGH` untuk menyalakan lampu dan logika `LOW` untuk mematikan lampu. Sedangkan pada `analogWrite()` kita menggunakan angka dari 0 sampai 255 untuk menyalakan, atau lebih tepatnya, mengatur tingkat kecerahan lampu yang ingin kita nyalakan.
+
+Untuk diingat terlebih dahulu sebelumnya, biasanya angka 0 akan membuat membuat cahaya lampu yang menyala sangat redup atau bahkan tidak ada cahaya dan membuatnya tampak padam. Sedangkan angka 255 akan membuat cahaya lampu menyala sangat terang.
+
+Dengan kata lain, teman-teman bisa menggunakan angka berapapun dari angka 0 sampai 255. Misalnya 10, 40, 20, 120, 250, ataupun 221 selama tidak melebihi angka 255.
+
+Mari kita langsung praktik untuk mencari tahu bagaimana cara menggunakan perintah `analogWrite()`.
+
+Ketiklah sketch berikut ini. Pada sketch pertama ini, kita akan menyalakan lampu merah saja dengan menggunakan perintah `digitalWrite()` terlebih dahulu.
+
+```arduino title="TUTORIAL_BLINK_2.ino" showLineNumbers
+int R=2; //deklarasikan variabel R sebagai pin 4
+int Y=3; //deklarasikan variabel Y sebagai pin 5
+int G=4; //deklarasikan variabel G sebagai pin 6
+
+void setup() {
+  //tugaskan variabel R, Y, dan G sebagai OUTPUT
+  pinMode(R, OUTPUT);
+  pinMode(Y, OUTPUT);
+  pinMode(G, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(R, HIGH); //beri logika HIGH ke pin R
+  delay(1000);
+}
+```
+
+Apabila teman-teman sudah mengupload nya, maka teman-teman akan mendapati lampu merah akan menyala terus menerus. Ingat dan perhatikan tingkat kecerahan lampu merah saat ini ketika dinyalakan menggunakan perintah `digitalWrite()` merupakan kecerahan paling tinggi.
+
+<p align="center" width="100%">
+
+<img width="50%" src={require('./img/img2/tutorial-2-led-module-blinking-challenge-2-1.jpg').default} alt="Ultrasonic Sensors"/>
+
+</p>
+
+Selanjutnya, kita akan memodifikasi sketch yang kita gunakan tadi pada baris 14 saja seperti yang diterangi di bawah ini.
+
+```arduino title="TUTORIAL_BLINK_2.ino" showLineNumbers
+int R=2; //deklarasikan variabel R sebagai pin 4
+int Y=3; //deklarasikan variabel Y sebagai pin 5
+int G=4; //deklarasikan variabel G sebagai pin 6
+
+void setup() {
+  //tugaskan variabel R, Y, dan G sebagai OUTPUT
+  pinMode(R, OUTPUT);
+  pinMode(Y, OUTPUT);
+  pinMode(G, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  //highlight-start
+  analoglWrite(R, 255); //beri sinyal PWM sebesar 255 ke pin R
+  //highlight-end
+  delay(1000);
+}
+```
+
+Setelah selesai mengetik program, cobalah upload program tersebut dan lihat bagaimana hasilnya.
+
+Teman-teman mungkin mendapati bahwa lampu merah tetap menyala dengan tingkat kecerahan yang sama seperti ketika dinyalakan menggunakan perintah `digitalWrite()` sebelumnya.
+
+Kali ini, ubahlah angka 255 tersebut dengan angka 80 dan upload kembali programnya. Kira-kira apa yang akan teman-teman dapati?
+
+Teman-teman akan mendapati bahwa lampu merah tetap menyala, namun lebih redup daripada sebelumnya, bukan?
+
+Disinilah tantangan untuk teman-teman. Cobalah mengganti angka 80 tadi dengan angka berapapun dan lihat hasilnya.
+
+<br/>
+
+### Tantangan 4
+
+Setelah memahami bagaimana menggunakan fungsi `analogWrite()`, sekarang kita akan belajar menggunakannya dalam beragam variasi.
+
+Ketiklah sketch berikut ini. Pada sketch pertama ini, kita akan membuat lampu merah berkedip dengan menggunakan perintah `digitalWrite()` terlebih dahulu.
+
+```arduino title="TUTORIAL_BLINK_2.ino" showLineNumbers
+int R=2; //deklarasikan variabel R sebagai pin 4
+int Y=3; //deklarasikan variabel Y sebagai pin 5
+int G=4; //deklarasikan variabel G sebagai pin 6
+
+void setup() {
+  //tugaskan variabel R, Y, dan G sebagai OUTPUT
+  pinMode(R, OUTPUT);
+  pinMode(Y, OUTPUT);
+  pinMode(G, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(R, HIGH); //beri logika HIGH ke pin R
+  delay(1000);
+  digitalWrite(R, LOW); //beri logika HIGH ke pin R
+  delay(1000);
+}
+```
+
+Cobalah upload program tersebut dan amati hasilnya.
+
+Teman-teman seharusnya mendapati lampu merah berkedip nyala mati setiap satu detik.
+
+Namun bagaimana jika kita ingin membuat lampu merah tidak langsung mati begitu saja, namun akan padam perlahan-lahan dari terang ke redup kemudian padam?
+
+Cobalah ketik sketch berikut ini, dimana kita sudah mengganti `digitalWrite()` menjadi `analogWrite()`.
+
+```arduino title="TUTORIAL_BLINK_2.ino" showLineNumbers
+int R=2; //deklarasikan variabel R sebagai pin 4
+int Y=3; //deklarasikan variabel Y sebagai pin 5
+int G=4; //deklarasikan variabel G sebagai pin 6
+
+void setup() {
+  //tugaskan variabel R, Y, dan G sebagai OUTPUT
+  pinMode(R, OUTPUT);
+  pinMode(Y, OUTPUT);
+  pinMode(G, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  analogWrite(R, 255); //beri sinyal PWM sebesar 255 ke pin R
+  delay(1000);
+  analogWrite(R, 100); //beri sinyal PWM sebesar 100 ke pin R
+  delay(1000);
+  analogWrite(R, 0); //beri sinyal PWM sebesar 0 ke pin R
+  delay(1000);
+}
+```
+
+Cobalah upload program tersebut dan amati apa yang akan terjadi.
+
+Teman-teman akan mendapati lampu merah akan menyala sangat terang, kemudian menyala redup, kemudian padam. Karena berada dalam fungsi `loop()`, proses tersebut akan berjalan berulang-ulang seterusnya secara bergantian setiap 1 detik.
+
+Kondisi lampu paling terang terjadi ketika diberi sinyal sebesar 255. Kondisi lampu menyala redup terjadi ketika diberi sinyal sebesar 100. Dan kondisi lampu padam terjadi ketika diberi sinyal sebesar 0.
+
+Proses redupnya lampu tersebut bisa dibuat lebih mulus lagi dengan menambahkan lebih banyak perintah `analogWrite()` dengan menggunakan nilai sinyal yang berbeda-beda lebih banyak lagi.
+
+Disinilah tantangan untuk teman-teman. Jika pada program di atas, kita hanya menggunakan 3 buah nilai sinyal yang berbeda, yakni 255, 100, dan 0, cobalah untuk menambahkan lebih banyak lagi nilai sinyal yang berbeda seperti 255, 200, 150, 100, 50, 0 atau angka berapapun yang teman-teman inginkan.
+
+Teman-teman bisa mencoba melihat petunjuknya. Namun cobalah untuk menjawabnya sendiri terlebih dahulu, kemudian periksa dengan membuka petunjuk.
+
+<Tabs className="unique-tabs">
+<TabItem value="Cek Petunjuk 1">
+
+Mau cari petunjuk?
+
+</TabItem>
+
+<TabItem value="Cek Petunjuk 2">
+
+Bukan yang ini juga,,
+
+</TabItem>
+
+<TabItem value="Cek Petunjuk 3">
+
+Bukan yang ini,,
+
+</TabItem>
+
+<TabItem value="Cek Petunjuk 4">
+
+```arduino title="TUTORIAL_BLINK_2.ino" showLineNumbers
+// the loop function runs over and over again forever
+void loop() {
+  analogWrite(R, 255); //beri sinyal PWM sebesar 255 ke pin R
+  delay(1000);
+  analogWrite(R, 250); //beri sinyal PWM sebesar 250 ke pin R
+  delay(1000);
+  analogWrite(R, 200); //beri sinyal PWM sebesar 200 ke pin R
+  delay(1000);
+  analogWrite(R, 150); //beri sinyal PWM sebesar 150 ke pin R
+  delay(1000);
+  analogWrite(R, 100); //beri sinyal PWM sebesar 100 ke pin R
+  delay(1000);
+  analogWrite(R, 50); //beri sinyal PWM sebesar 50 ke pin R
+  delay(1000);
+  analogWrite(R, 0); //beri sinyal PWM sebesar 0 ke pin R
+  delay(1000);
+}
+```
+
+</TabItem>
+
+<TabItem value="Cek Petunjuk 5">
+
+Bukan yang ini,,
+
+</TabItem>
+
+</Tabs>
+
+### Tantangan 5
+
+Pada Tantangan 4 sebelumnya, kita hanya menggunakan fungsi `analogWrite()` untuk meredupkan satu lampu, yaitu satu lampu merah saja.
+
+Bagaimana jika kita ingin meredupkan ketiga lampunya sekaligus menggunakan fungsi `analogWrite()`?
+
+Caranya cukup sederhana kok. Kita akan meminjam sketch program Tantangan 4 sebelumnya, namun sudah dimodifikasi dengan menambahkan satu lagi baris fungsi `analogWrite()` untuk menyalakan lampu kuning seperti yang diterangi di bawah.
+
+```arduino title="TUTORIAL_BLINK_2.ino" showLineNumbers
+int R=2; //deklarasikan variabel R sebagai pin 4
+int Y=3; //deklarasikan variabel Y sebagai pin 5
+int G=4; //deklarasikan variabel G sebagai pin 6
+
+void setup() {
+  //tugaskan variabel R, Y, dan G sebagai OUTPUT
+  pinMode(R, OUTPUT);
+  pinMode(Y, OUTPUT);
+  pinMode(G, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  analogWrite(R, 255); //beri sinyal PWM sebesar 255 ke pin R
+  //highlight-start
+  analogWrite(Y, 255); //beri sinyal PWM sebesar 255 ke pin Y
+  //highlight-end
+  delay(1000);
+  analogWrite(R, 100); //beri sinyal PWM sebesar 100 ke pin R
+  //highlight-start
+  analogWrite(Y, 100); //beri sinyal PWM sebesar 100 ke pin Y
+  //highlight-end
+  delay(1000);
+  analogWrite(R, 0); //beri sinyal PWM sebesar 0 ke pin R
+  //highlight-start
+  analogWrite(Y, 0); //beri sinyal PWM sebesar 0 ke pin Y
+  //highlight-end
+  delay(1000);
+}
+```
+
+Ketika teman-teman mengupload sketch program di atas, teman-teman akan mendapati lampu merah dan lampu kuning akan redup bersamaan karena kita telah menambahkan perintah untuk meredupkan lampu kuning dengan menggunakan fungsi `analogWrite()` pada baris 15, 18, dan 21.
+
+Tantangan kali ini, teman-teman harus membuat lampu hijau juga ikut meredup bersama dengan lampu merah dan lampu kuning.

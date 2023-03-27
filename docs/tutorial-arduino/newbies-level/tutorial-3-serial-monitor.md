@@ -47,7 +47,7 @@ Klik pada salah satu dari ketiga tombol di bawah ini untuk membuka Prasyarat, Ta
 <TabItem value="Prasyarat 🔑">
 
 - Sudah lolos Tutorial 2 - Mengedipkan Mini Traffic Light Module 🚦
-- Sudah mempelajari Arduino Nano Expansion Board pada materi **[Arduino Nano Expansion Board](/docs/tutorial-arduino/arduino-hardware#arduino-nano-expansion-board)**
+- Sudah mempelajari Arduino Nano Expansion Board pada materi **[Arduino Nano Expansion Board](/docs/tutorial-arduino/arduino-hardware.md#arduino-nano-expansion-board)**
 
 Kalau teman-teman merasa belum memenuhi prasyarat yang dibutuhkan, diharapkan untuk membaca dan memenuhinya terlebih dahulu.
 

@@ -4,6 +4,7 @@ sidebar_position: 2
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import tinkerCADsimsManualBlink from '/tinkercad-sims-manual-blink.mp4';
 
 # Tutorial 1 - Blink ✨
 
@@ -11,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 Tutorial pertama ini, bisa dibilang sangat mudah. Analoginya seperti kita belajar merebus air untuk pertama kalinya jika sedang belajar memasak, atau belajar merangkak bagi bayi sebelum bisa berlari kencang.
 
-Pada tutorial ini kita akan belajar mengedipkan lampu LED yang ada pada Arduino Nano. Masih ingatkah yang mana lampu LED pada Arduino Nano? Teman-teman bisa melihatnya kembali pada topik **[Komponen-Komponen Arduino Nano ](/docs/tutorial-arduino/arduino-hardware#komponen-komponen-arduino-nano)**.
+Pada tutorial ini kita akan belajar mengedipkan lampu LED yang ada pada Arduino Nano. Masih ingatkah yang mana lampu LED pada Arduino Nano? Teman-teman bisa melihatnya kembali pada topik **[Komponen-Komponen Arduino Nano ](/docs/tutorial-arduino/arduino-hardware.md#komponen-komponen-arduino-nano)**.
 
 Atau bisa lihat kembali komponen bernomor 3 yang ditunjuk pada pada gambar di bawah ini
 
@@ -45,7 +46,7 @@ Setelah teman-teman mengetahui nama komponen virtual, mari kita lihat video beri
 <div style={{textAlign: 'center'}}>
 
 <video width="70%" controls>
-  <source src="/tinkercad-sims-manual-blink.mp4"/>
+  <source src={tinkerCADsimsManualBlink}/>
 </video>
 
 </div>
@@ -73,9 +74,9 @@ Klik pada salah satu dari ketiga tombol di bawah ini untuk membuka Prasyarat, Ta
 <Tabs className="unique-tabs">
 <TabItem value="Prasyarat 🔑">
 
-- Sudah meng-**[Install Arduino IDE](/docs/tutorial-arduino/arduino-ide-software#instalasi-arduino-ide)**
-- Sudah meng-**[Install Driver CH340](/docs/tutorial-arduino/arduino-ide-software#instalasi-driver-ch340)**
-- Sudah mempelajari **[Modul Board Arduino Nano](/docs/tutorial-arduino/arduino-hardware)**
+- Sudah meng-**[Install Arduino IDE](/docs/tutorial-arduino/arduino-ide-software.md#instalasi-arduino-ide)**
+- Sudah meng-**[Install Driver CH340](/docs/tutorial-arduino/arduino-ide-software.md#instalasi-driver-ch340)**
+- Sudah mempelajari **[Modul Board Arduino Nano](/docs/tutorial-arduino/arduino-hardware.md)**
 
 Kalau teman-teman merasa belum memenuhi prasyarat yang dibutuhkan, diharapkan untuk membaca dan memenuhinya terlebih dahulu.
 
@@ -166,7 +167,7 @@ alt="Ultrasonic Sensors"
 
 ### Membuka Arduino IDE
 
-4. Selanjutnya kita akan membuat sketch program baru di Arduino IDE. Bukalah Arduino IDE pada laptop/komputer Anda. Dengan meng-klik sekali pada ikon Arduino IDE. Jika teman-teman lupa bagaimana cara membuka Arduino IDE, kita sarankan teman-teman untuk melihat kembali di **[Ikon Arduino IDE](/docs/tutorial-arduino/arduino-ide-software#ikon-arduino-ide)**.
+4. Selanjutnya kita akan membuat sketch program baru di Arduino IDE. Bukalah Arduino IDE pada laptop/komputer Anda. Dengan meng-klik sekali pada ikon Arduino IDE. Jika teman-teman lupa bagaimana cara membuka Arduino IDE, kita sarankan teman-teman untuk melihat kembali di **[Ikon Arduino IDE](/docs/tutorial-arduino/arduino-ide-software.md#ikon-arduino-ide)**.
 
 <p align="center" width="100%">
 
@@ -809,7 +810,7 @@ void loop() {
 }
 ```
 
-Kemudian upload program yang sudah teman-teman ubah ke Arduino Nano. Masihkan teman-teman ingat bagaimana cara upload programnya? Tak masalah kalau lupa karena teman-teman bisa melihat kembali pada langkah **[Memverifikasi Program ](/docs/tutorial-arduino/newbies-level/tutorial-1-blink#memverifikasi-program)**.
+Kemudian upload program yang sudah teman-teman ubah ke Arduino Nano. Masihkan teman-teman ingat bagaimana cara upload programnya? Tak masalah kalau lupa karena teman-teman bisa melihat kembali pada langkah **[Memverifikasi Program ](/docs/tutorial-arduino/newbies-level/tutorial-1-blink.md#memverifikasi-program)**.
 
 Setelah teman-teman berhasil meng-upload program, apa yang terjadi? Apakah lampu LED pada Arduino Nano masih berkedip?
 
@@ -821,7 +822,7 @@ Hal ini dikarenakan pada Arduino IDE sudah diprogram untuk menganggap bahwa para
 
 Tantangan 2 ini akan mengajari teman-teman lebih dalam mengenai perbedaan fungsi `setup()` dan fungsi `loop()`.
 
-Teman-teman masih ingat bukan, perbedaan fungsi `setup()` dan fungsi `loop()` seperti yang sudah dijelaskan sebelumnya pada topik **[Bagian utama program Arduino](/docs/tutorial-arduino/newbies-level/tutorial-1-blink#bagian-utama-program-arduino)** di atas?
+Teman-teman masih ingat bukan, perbedaan fungsi `setup()` dan fungsi `loop()` seperti yang sudah dijelaskan sebelumnya pada topik **[Bagian utama program Arduino](/docs/tutorial-arduino/newbies-level/tutorial-1-blink.md#bagian-utama-program-arduino)** di atas?
 
 Mari RoboKarsa jelaskan kembali secara singkat ya, teman-teman.
 
