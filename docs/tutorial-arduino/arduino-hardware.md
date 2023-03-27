@@ -278,6 +278,6 @@ Pada Expansion Board juga terdapat Jack DC Port seperti yang ditunjukkan oleh ta
 
 </div>
 
-Sedangkan tanda panah hijau merupakan tombol reset yang memiliki fungsi yang sama dengan tombol reset pada Arduino Nano. Jika teman-teman terlupa seperti apa tombol reset pada Arduino Nano, lihat kembali pada **[Komponen-Komponen Arduino Nano ](/docs/tutorial-arduino/arduino-hardware#komponen-komponen-arduino-nano)**.
+Sedangkan tanda panah hijau merupakan tombol reset yang memiliki fungsi yang sama dengan tombol reset pada Arduino Nano. Jika teman-teman terlupa seperti apa tombol reset pada Arduino Nano, lihat kembali pada **[Komponen-Komponen Arduino Nano ](/docs/tutorial-arduino/arduino-hardware.md#komponen-komponen-arduino-nano)**.
 
 Expansion Board dan Arduino Nano ini akan sering kita gunakan bersama-bersama selama pelajaran di kelas robotika dan pemrograman RoboKarsa.
