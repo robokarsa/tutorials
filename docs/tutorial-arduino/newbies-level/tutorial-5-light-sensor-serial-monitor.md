@@ -5,7 +5,7 @@ sidebar_position: 6
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Tutorial 5 - Light Sensor and Serial Monitor
+# Tutorial 5 - Sensor Cahaya dan Serial Monitor
 
 Pada Tutorial 4 sebelumnya kita telah mempelajari bagaimana Serial Monitor bekerja untuk menampilkan data berupa nilai resistansi pada potensiometer menggunakan fungsi `analogRead()`. Dengan Serial Monitor kita dapat melihat berapa nilai resistansi potensiometer jika kita memutarnya ke arah tertentu.
 
@@ -50,6 +50,82 @@ Semakin terang cahaya yang mengenai komponen LDR, maka resistansinya akan semaki
 </p>
 
 Seperti yang ditunjukkan pada gambar di atas, Modul Sensor Cahaya memiliki 4 buah kaki yakni GND dan VCC sebagai masukan untuk daya listrik. Pin AO (Analog Output) untuk membaca nilai keluaran sinyal analog dan pin DO (Digital Output) untuk membaca nilai keluaran sinyal digital. Kita akan mempelajari perbedaan keluaran analog dan keluaran digital pada Tutorial 5 ini.
+
+## Sekilas Tentang Sinyal
+
+Sebelum mulai beraksi, dijelaskan terlebih dahulu secara singkat mengenai apa itu sinyal.
+
+Pada pin AO (Analog Output) Sensor Cahaya akan mengeluarkan sinyal analog. Sedangkan pada pin DO (Digital Output) akan mengeluarkan sinyal digital. Untuk memahami lebih lanjut perbedaan sinyal analog dan sinyal digital kita akan menggunakan ilustrasi gambar di bawah.
+
+<p align="center" width="100%">
+
+<img width="80%" src={require('./img/img5/tutorial-5-34-about-signal.png').default} alt="Arduino Light Sensor Pins"/>
+
+</p>
+
+Gambar di atas merupakan ilustrasi perbedaan sinyal analog dan sinyal digital. Pada sinyal analog, garis nya tergambar berupa garis yang tidak lurus dan tidak beraturan serta naik dan turun berdasarkan nilai yang muncul pada Serial Monitor. Sedangkan pada sinyal digital, garis yang tergambar berupa garis lurus yang naik dan turun serta mendatar.
+
+|                                                 Bentuk Sinyal Analog                                                  |                                                 Bentuk Sinyal Digital                                                 |
+| :-------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: |
+| <img width="80%" src={require('./img/img5/tutorial-5-35-about-signal.png').default} alt="Arduino Light Sensor Pins"/> | <img width="80%" src={require('./img/img5/tutorial-5-36-about-signal.png').default} alt="Arduino Light Sensor Pins"/> |
+
+Sinyal analog bisa disebut juga gelombang tak beraturan karena bentuknya yang tak beraturan. Sedangkan sinyal digital bisa disebut juga sebagai sinyal kotak karena bentuknya seperti kotak-kotak.
+
+Untuk memahami lebih lanjut mengenai sinyal analog dan sinyal digital, perhatikan ilustrasi di bawah.
+
+<p align="center" width="100%">
+
+<img width="80%" src={require('./img/img5/tutorial-5-37-about-signal.png').default} alt="Arduino Light Sensor Pins"/>
+
+</p>
+
+- Pada titik hijau, sinyal analog akan bernilai 800 karena sejajar dengan nilaiSensor yang bernilai 800 pada detik ke-3.
+
+- Pada titik orange, sinyal analog akan bernilai 1023 karena sejajar dengan nilaiSensor pada angka 1023 dan pada detik ke-6.
+
+- Kemudian pada titik biru, sinyal analog akan bernilai 600 karena sejajar dengan nilaiSensor 600 pada detik ke-15.
+
+- Kira-kira teman-teman tahu berapa nilaiSensor pada titik merah? Benar, titik merah memiliki nilai sebesar 900 karena sejajar dengan nilaiSensor 900 pada detik ke-29.
+
+Kemudian pada sinyal digital,
+
+<p align="center" width="100%">
+
+<img width="80%" src={require('./img/img5/tutorial-5-38-about-signal.png').default} alt="Arduino Light Sensor Pins"/>
+
+</p>
+
+- Pada detik ke-0 sampai detik ke-3, nilai sinyal digital akan bernilai 25 karena sejajar dengan angka 25 pada nilaiSensor.
+
+- Kemudian pada detik ke-3 sampai detik ke-15, sinyal digital bernilai 1023 karena sejajar dengan angka 1023 pada nilaiSensor.
+
+- Selanjutnya pada detik ke-15 sampai pada detik ke-19, sinyal digital bernilai 25 karena sejajar dengan angka 25 pada nilaiSensor.
+
+- Kira-kira pada detik ke-19 sampai pada detik ke-23, berapakah nilai sinyal digital? Benar, nilai sinyal digital pada detik ke-19 sampai detik ke-23 bernilai 1023 karena sejajar dengan angka 1023 pada nilaiSensor.
+
+- Sinyal digital hanya membaca nilaiSensor yang sedang tinggi ataupun sedang rendah saja. Dalam hal ini, nilai tinggi pada nilaiSensor bernilai 1023 dan nilai rendah pada nilaiSensor bernilai 25.
+
+- Selain itu, komputer juga akan menganggap nilai tinggi sebagai logika 1 dan nilai rendah sebagai logika 0. Sebagaimana yang muncul pada Tantangan 3 sebelumnya.
+
+Contoh ilustrasi lainnya untuk sinyal digital,
+
+Jika kita mengingat kembali pada Tutorial 1 dimana kita menyalakan lampu dengan menggunakan perintah `digitalWrite()`, ilustrasi sinyal nya akan seperti pada gambar di bawah.
+
+<p align="center" width="100%">
+
+<img width="80%" src={require('./img/img5/tutorial-5-41-about-signal.png').default} alt="Arduino Light Sensor Pins"/>
+
+</p>
+
+- Pada detik ke-0 sampai detik ke-3, karena logika yang diberikan pada perintah `digitalWrite()` adalah logika `LOW`, maka sinyal akan bernilai 0 Volt sehingga lampu tidak mendapat tegangan dan lampu menjadi padam.
+
+- Kemudian pada detik ke-3 sampai detik ke-15, karena logika yang diberikan pada perintah `digitalWrite()` adalah logika `HIGH`, maka sinyal akan bernilai 5 Volt sehingga lampu mendapat tegangan dan lampu menyala.
+
+- Selanjutnya pada detik ke-15 sampai pada detik ke-19, karena logika yang diberikan pada perintah `digitalWrite()` adalah logika `LOW`, maka sinyal akan bernilai 0 Volt sehingga lampu tidak mendapat tegangan dan lampu menjadi padam.
+
+- Bisakah teman-teman menebak, pada detik ke-19 sampai ke-23 logika apa yang diberikan pada perintah `digitalWrite()` dan bagaimana kondisi lampunya?
+
+Kita akan belajar lebih lanjut bagaimana menggunakan logika 1 dan logika 0 atau logika `HIGH` dan logika `LOW` pada pelajaran berikutnya. Untuk saat ini, mari kita memfokuskan topik kita pada bagaimana membaca sinyal analog dan sinyal digital pada sensor cahaya terlebih dahulu.
 
 ## Mulai Beraksi 🚀
 
@@ -130,17 +206,17 @@ Periksa kembali posisi pemasangan kaki-kaki. Diharapkan agar tidak terbalik dan 
 
 Setelah Sensor Cahaya dan Arduino Nano saling terhubung, maka hasilnya akan seperti pada gambar di bawah ini.
 
-    <p align="center" width="100%">
+<p align="center" width="100%">
 
-    <img width="100%" src={require('./img/img5/tutorial-5-6-wiring-diagram.jpg').default} alt="Arduino Light Sensor Wiring Diagram"/>
+<img width="100%" src={require('./img/img5/tutorial-5-6-wiring-diagram.jpg').default} alt="Arduino Light Sensor Wiring Diagram"/>
 
-    </p>
+</p>
 
 Warna kabel yang digunakan bebas dan tak harus sama dengan gambar di atas. Namun yang harus diperhatikan, pastikan kaki Potensiometer terhubung ke posisi pin yang sama seperti pada gambar di atas. Gunakan Tabel Wiring Diagram untuk memastikannya. Pastikan pin VCC Sensor Cahaya terhubung ke pin V Arduino Nano dan pin GND Sensor Cahaya terhubung ke pin G Arduino Nano.
 
 ### Mengetik Program
 
-3. Bukalah Arduino IDE, kemudian buatlah sketch baru. Beri sketch baru tersebut dengan nama TUTORIAL_5_SENSOR_CAHAYA_SERIAL_MONITOR dan simpan dalam folder TUTORIAL PROGRAMS yang telah kita buat pada Tutorial 1 sebelumnya. Jika terlupa bagaimana membuat nama sketch, silahkan buka kembali Tutorial 1 sebelumnya.
+3. Bukalah Arduino IDE, kemudian buatlah sketch baru. Beri sketch baru tersebut dengan nama TUTORIAL_5_SENSOR_CAHAYA_SERIAL_MONITOR dan simpan dalam folder **Program Tutorials** yang telah kita buat pada Tutorial 1 sebelumnya. Jika terlupa bagaimana membuat nama sketch, silahkan buka kembali Tutorial 1 sebelumnya.
 
    <p align="center" width="100%">
 
@@ -154,7 +230,7 @@ Warna kabel yang digunakan bebas dan tak harus sama dengan gambar di atas. Namun
 
 4. Karena kita memang akan mempelajari fungsi baru, yakni `digitalWrite()`, namun sebelumnya mari kita perdalam dahulu fungsi `analogWrite()` dengan menggunakan Sensor Cahaya. Karenanya kita akan menggunakan sketch program Tutorial 4 sebelumnya. Ketik program berikut pada sketch tersebut.
 
-```arduino title="TUTORIAL_5_POTENTIOMETER_SERIAL_MONITOR.ino" showLineNumbers
+```arduino title="TUTORIAL_5_SENSOR_CAHAYA_SERIAL_MONITOR.ino" showLineNumbers
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
@@ -178,33 +254,33 @@ Sebelum mengupload program, sama seperti pada Tutorial 1, mari kita melakukan ko
 
 7. Memilih Jenis Board
 
-Pastikan jenis board yang digunakan sudah sesuai dengan settingan pada Arduino IDE dengan cara memilih opsi berikut secara berurutan Tools ➜ Board ➜ Arduino Nano atau perhatikan urutan tanda panah pada gambar di bawah ini. Disini kita memilih Arduino Nano karena kita menggunakan Arduino Nano.
+   Pastikan jenis board yang digunakan sudah sesuai dengan settingan pada Arduino IDE dengan cara memilih opsi berikut secara berurutan Tools ➜ Board ➜ Arduino Nano atau perhatikan urutan tanda panah pada gambar di bawah ini. Disini kita memilih Arduino Nano karena kita menggunakan Arduino Nano.
 
-    <p align="center" width="100%">
+      <p align="center" width="100%">
 
-    <img width="100%" src={require('./img/img5/tutorial-5-8-select-board.png').default} alt="Arduino Light Sensor Wiring Diagram"/>
+   <img width="100%" src={require('./img/img5/tutorial-5-8-select-board.png').default} alt="Arduino Light Sensor Wiring Diagram"/>
 
-    </p>
+      </p>
 
 8. Memilih Jenis Processor
 
-Processor dalam bahasa Indonesia berarti Prosessor, atau Pemroses sebuah perintah, singkatnya seperti otak dari robot. Disini kita akan menentukan jenis Processor yang digunakan oleh Arduiino Nano, yaitu ATMega328P (Old Bootloader), dengan cara memilih opsi berikut secara berurutan Tools ➜ Processor ➜ ATmega328P (Old Bootloader). Atau ikuti urutan tanda panah pada gambar di bawah ini
+   Processor dalam bahasa Indonesia berarti Prosessor, atau Pemroses sebuah perintah, singkatnya seperti otak dari robot. Disini kita akan menentukan jenis Processor yang digunakan oleh Arduiino Nano, yaitu ATMega328P (Old Bootloader), dengan cara memilih opsi berikut secara berurutan Tools ➜ Processor ➜ ATmega328P (Old Bootloader). Atau ikuti urutan tanda panah pada gambar di bawah ini
 
-    <p align="center" width="100%">
+      <p align="center" width="100%">
 
-    <img width="80%" src={require('./img/img5/tutorial-5-9-select-processor.png').default} alt="Ultrasonic Sensors"/>
+   <img width="80%" src={require('./img/img5/tutorial-5-9-select-processor.png').default} alt="Ultrasonic Sensors"/>
 
-    </p>
+      </p>
 
 9. Memilih Nomor Port
 
-Nomor port untuk Arduino Nano pada tiap laptop/komputer dapat berbeda-beda. Pilihlah nomor port yang muncul pada pilihan yang tersedia di Arduino IDE. Lebih jelasnya, perhatikan gambar di bawah.
+   Nomor port untuk Arduino Nano pada tiap laptop/komputer dapat berbeda-beda. Pilihlah nomor port yang muncul pada pilihan yang tersedia di Arduino IDE. Lebih jelasnya, perhatikan gambar di bawah.
 
-    <p align="center" width="100%">
+      <p align="center" width="100%">
 
-    <img width="80%" src={require('./img/img5/tutorial-5-10-select-port.png').default} alt="Ultrasonic Sensors"/>
+   <img width="80%" src={require('./img/img5/tutorial-5-10-select-port.png').default} alt="Ultrasonic Sensors"/>
 
-    </p>
+      </p>
 
 ### Mengupload Program
 
@@ -220,11 +296,11 @@ Maka akan muncul window “Serial Monitor” seperti pada gambar di bawah ini.
 
 Jika belum muncul teks tersebut, cobalah nyalakan centang pada “Autoscroll”, atur setinggan pada “Newline”, dan “9600 baud”.
 
-    <p align="center" width="100%">
+<p align="center" width="100%">
 
-    <img width="20%" src={require('./img/img5/tutorial-5-11-sermon.png').default} alt="Ultrasonic Sensors"/>
+<img width="20%" src={require('./img/img5/tutorial-5-11-sermon.png').default} alt="Ultrasonic Sensors"/>
 
-    </p>
+</p>
 
 Pada window tersebut akan menampilkan angka yang merupakan nilai hasil pembacaa resistansi LDR.
 
@@ -240,7 +316,7 @@ Nilai resistansi yang muncul akan semakin kecil apabila semakin banyak cahaya ya
 
 Sebenarnya, program yang kita gunakan untuk Tutorial 5 ini sama dengan program yang kita gunakan pada Tutorial 4 sebelumnya, sehingga penjelasan programnya akan sama persis. Namun, meskipun demikian, kita akan memberikan penjelasannya lagi secara singkat terlebih dahulu.
 
-```arduino title="TUTORIAL_4_POTENTIOMETER_SERIAL_MONITOR.ino" showLineNumbers
+```arduino title="TUTORIAL_5_SENSOR_CAHAYA_SERIAL_MONITOR.ino" showLineNumbers
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
@@ -268,7 +344,7 @@ Seperti yang telah dikatakan sebelumnya, bahwa program di atas menggunakan proga
 
 Kali ini kita akan memodifikasi program di atas tadi dengan mengubah `analogRead()` pada baris 8 menjadi `digitalRead()` seperti yang diterangi pada kode program di bawah ini.
 
-```arduino title="TUTORIAL_4_POTENTIOMETER_SERIAL_MONITOR.ino" showLineNumbers
+```arduino title="TUTORIAL_5_SENSOR_CAHAYA_SERIAL_MONITOR.ino" showLineNumbers
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
@@ -358,7 +434,7 @@ Periksa kembali posisi pemasangan kaki-kaki. Diharapkan agar tidak terbalik dan 
 
 Sketch Program di bawah ini pada dasarnya sama seperti yang telah dijelaskan pada penjelasan di atas. Hanya saja, kali ini kita akan menggunakan perintah `analogRead()` pada baris 8 untuk membaca nilai sinyal pada pin A0. Ketik dan upload lah program di bawah ini. Lihat hasilnya pada Serial Monitor.
 
-```arduino title="TUTORIAL_4_POTENTIOMETER_SERIAL_MONITOR.ino" showLineNumbers
+```arduino title="TUTORIAL_5_SENSOR_CAHAYA_SERIAL_MONITOR.ino" showLineNumbers
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
@@ -492,7 +568,6 @@ Sekarang kita akan menguji apakah ambang batas normal tersebut sudah sesuai deng
 
 Apabila teman-teman berhasil menyalakan lampu indikator dan memadamkan lampu indikator dengan posisi lampu senter seperti pada gambar langkah 4 dan 5 di atas, maka teman-teman telah berhasil melewati semua tantangan.
 
-<!--
 <br/>
 
 ### Tantangan 3
@@ -531,7 +606,7 @@ Periksa kembali posisi pemasangan kaki-kaki. Diharapkan agar tidak terbalik dan 
 
 Kemudian ketik dan upload program sketch berikut. Kemudian perhatikan hasilnya pada Serial Monitor.
 
-```arduino title="TUTORIAL_4_POTENTIOMETER_SERIAL_MONITOR.ino" showLineNumbers
+```arduino title="TUTORIAL_5_SENSOR_CAHAYA_SERIAL_MONITOR.ino" showLineNumbers
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
@@ -555,7 +630,7 @@ Teman-teman akan memperhatikan bahwa nilai hasil pembacaan pada pin digital 4 ti
 
 Kemudian cobalah mengganti perintah `analogRead()` pada baris 8 sketch di atas menjadi `digitalRead()` seperti pada gambar di bawah ini yang telah diubah pada baris 8.
 
-```arduino title="TUTORIAL_4_POTENTIOMETER_SERIAL_MONITOR.ino" showLineNumbers
+```arduino title="TUTORIAL_5_SENSOR_CAHAYA_SERIAL_MONITOR.ino" showLineNumbers
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
@@ -575,4 +650,70 @@ Upload dan perhatikan hasilnya pada Serial Monitor dengan sorotan cahaya senter.
 
 Sekarang pada Serial Monitor akan menampilkan angka 0 ketika disorot oleh cahaya senter sehingga resistansinya dianggap rendah dan dapat menyalakan lampu indikator pada sensor. Dan akan menampilkan angka 1 ketika tidak disorot oleh cahaya senter sehingga resistansinya dianggap tinggi dan menyebabkan lampu indikator pada sensor menjadi padam.
 
-Dengan kata lain, apabila kita ingin membaca sinyal digital dari pin DO Sensor Cahaya menggunakan pin digital pada Arduino Nano, kita harus menggunakan perintah `digitalRead()`. -->
+|                                                                                                                     Ketika LDR disorot cahaya senter                                                                                                                      |                                                                                                                    Ketika LDR tidak disorot cahaya senter                                                                                                                     |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <img width="100%" src={require('./img/img5/tutorial-5-12-lighted.png').default} alt="Ultrasonic Sensors"/> akan menampilkan angka 0 pada Serial Monitor <img width="100%" src={require('./img/img5/tutorial-5-13-lighted-sermon.png').default} alt="Ultrasonic Sensors"/> | <img width="100%" src={require('./img/img5/tutorial-5-14-unlighted.png').default} alt="Ultrasonic Sensors"/> akan menampilkan angka 1 pada Serial Monitor <img width="100%" src={require('./img/img5/tutorial-5-15-unlighted-sermon.png').default} alt="Ultrasonic Sensors"/> |
+
+Dengan kata lain, apabila kita ingin membaca sinyal digital dari pin DO ataupun pin AO Sensor Cahaya menggunakan pin digital yang terdapat pada Arduino Nano, kita harus menggunakan perintah `digitalRead()` pada programnya.
+
+### Tantangan 4
+
+Pada tantangan terakhir ini kita akan mempelajari mengenai penggunaan pin DO (Digital Output) pada Sensor Cahaya. Pin DO yang dimaksud ditunjukkan pada gambar di bawah ini.
+
+<p align="center" width="100%">
+
+<img width="100%" src={require('./img/img5/tutorial-5-30-challenge-4.png').default} alt="Arduino Light Sensor Wiring Diagram"/>
+
+</p>
+
+Selanjutnya kita akan merangkai kabel dan komponen nya seperti pada Wiring Diagram di bawah ini. Pada dasarnya kita hanya menghubungkan pin DO Sensor Cahaya ke pin analog A0 Arduino Nano.
+
+<p align="center" width="100%">
+
+<img width="100%" src={require('./img/img5/tutorial-5-31-challenge-4.png').default} alt="Arduino Light Sensor Wiring Diagram"/>
+
+</p>
+
+Jika gambar Wiring Diagram di atas kurang jelas, teman-teman bisa gunakan tabel Wiring Diagram di bawah ini.
+
+| Sensor Cahaya | Arduino Nano Expansion Board |
+| :-----------: | :--------------------------: |
+|    Pin DO     |            Pin A0            |
+|    Pin GND    |            Pin G             |
+|    Pin VCC    |            Pin V             |
+
+:::danger Peringatan
+Sebelum menyalakan Arduino Nano, harap periksa kembali rangkaiannya. Apakah sudah sama dengan Wiring Diagram?
+
+Periksa kembali posisi pemasangan kaki-kaki. Diharapkan agar tidak terbalik dan sesuai dengan keterangan pin agar tidak merusak komponen.
+:::
+
+Kemudian upload program di bawah dan lihatlah hasilnya pada Serial Monitor.
+
+```arduino title="TUTORIAL_5_SENSOR_CAHAYA_SERIAL_MONITOR.ino" showLineNumbers
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+}
+
+void loop() {
+ // put your main code here, to run repeatedly:
+ //highlight-start
+ int nilaiSensor = digitalRead(4);
+ //highlight-end
+ Serial.println(nilaiSensor);
+ delay(1);
+}
+```
+
+Teman-teman akan menemukan bahwa Serial Monitor akan menampilkan angka di atas 1000-an ketika Sensor Cahaya tidak disorot lampu senter dan akan menampilkan angka di bawah 50-an ketika disorot oleh lampu senter.
+
+Nilai ketika disorot oleh cahaya senter yang didapat dapat berbeda-beda tergantung kuat cahaya senter yang menyorot kepala Sensor Cahaya, namun yang pasti adalah nilai nya akan berada di bawah 100-an. Kira-kira berapa nilai yang teman-teman dapatkan?
+
+|                                                                                                                          Ketika LDR disorot cahaya senter                                                                                                                           |                                                                                                                         Ketika LDR tidak disorot cahaya senter                                                                                                                         |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <img width="100%" src={require('./img/img5/tutorial-5-12-lighted.png').default} alt="Ultrasonic Sensors"/> akan menampilkan angka di bawah 50-an pada Serial Monitor <img width="100%" src={require('./img/img5/tutorial-5-32-challenge-4.png').default} alt="Ultrasonic Sensors"/> | <img width="100%" src={require('./img/img5/tutorial-5-14-unlighted.png').default} alt="Ultrasonic Sensors"/> akan menampilkan angka di atas 1000-an pada Serial Monitor <img width="100%" src={require('./img/img5/tutorial-5-33-challenge-4.png').default} alt="Ultrasonic Sensors"/> |
+
+Sekarang teman-teman bisa mengetahui, bahwa pin digital yang terdapat pada Arduino Nano juga bisa membaca sinyal analog dengan menggunakan perintah `analogRead()` pada programnya, selama pin yang kita pasang pada Sensor Cahaya adalah pin Analog Output juga.
+
+Namun pin digital yang terdapat pada Arduino Nano tidak bisa membaca sinyal analog dari pin Analog Output seperti yang sudah kita coba pada Tantangan 4 sebelumnya.

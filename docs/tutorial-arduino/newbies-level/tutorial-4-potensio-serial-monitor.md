@@ -149,7 +149,7 @@ Warna kabel yang digunakan bebas dan tak harus sama dengan gambar di atas. Namun
 
 ### Mengetik Program
 
-3. Bukalah Arduino IDE, kemudian buatlah sketch baru. Beri sketch baru tersebut dengan nama TUTORIAL_4_POTENTIOMETER_SERIAL_MONITOR dan simpan dalam folder TUTORIAL PROGRAMS yang telah kita buat pada Tutorial 1 sebelumnya. Jika terlupa bagaimana membuat nama sketch, silahkan buka kembali Tutorial 1 sebelumnya.
+3. Bukalah Arduino IDE, kemudian buatlah sketch baru. Beri sketch baru tersebut dengan nama TUTORIAL_4_POTENTIOMETER_SERIAL_MONITOR dan simpan dalam folder **Program Tutorials** yang telah kita buat pada Tutorial 1 sebelumnya. Jika terlupa bagaimana membuat nama sketch, silahkan buka kembali Tutorial 1 sebelumnya.
 
 <p align="center" width="100%">
 

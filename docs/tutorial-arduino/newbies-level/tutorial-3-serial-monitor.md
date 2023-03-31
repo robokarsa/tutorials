@@ -114,7 +114,7 @@ Setelah Arduino Nano terhubung dengan laptop, seharusnya Arduino Nano teman-tema
 
 ### Mengetik Program
 
-1. Bukalah Arduino IDE, kemudian buatlah sketch baru. Simpan sketch baru tersebut dengan nama TUTORIAL_3_SERIAL_MONITOR dan simpan dalam folder TUTORIAL PROGRAMS yang telah kita buat pada Tutorial 1 sebelumnya.
+1. Bukalah Arduino IDE, kemudian buatlah sketch baru. Simpan sketch baru tersebut dengan nama TUTORIAL_3_SERIAL_MONITOR dan simpan dalam folder **Program Tutorials** yang telah kita buat pada Tutorial 1 sebelumnya.
 
 <p align="center" width="100%">
 

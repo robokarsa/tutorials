@@ -391,7 +391,7 @@ Periksa kembali kabel-kabel jumper agar tidak ada kesalahan yang dapat berpotens
 
 ### Mengetik Program
 
-1. Bukalah Arduino IDE, kemudian buatlah sketch baru. Beri sketch baru tersebut dengan nama TUTORIAL_2_TRAFFIC_LIGHT_LED_MODULE dan simpan dalam folder TUTORIAL PROGRAMS yang telah kita buat pada Tutorial 1 sebelumnya. Jika terlupa bagaimana membuat nama sketch, silahkan buka kembali Tutorial 1 sebelumnya.
+1. Bukalah Arduino IDE, kemudian buatlah sketch baru. Beri sketch baru tersebut dengan nama TUTORIAL_2_TRAFFIC_LIGHT_LED_MODULE dan simpan dalam folder **Program Tutorials** yang telah kita buat pada Tutorial 1 sebelumnya. Jika terlupa bagaimana membuat nama sketch, silahkan buka kembali Tutorial 1 sebelumnya.
 
 <p align="center" width="100%">
 
