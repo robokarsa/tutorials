@@ -419,9 +419,14 @@ Atau juga bisa dipahami melalui bagan flowchart berikut ini:
 
 </p>
 
-Dan memiliki makna yang jika diterjemahkan dalam bahasa manusia akan berbunyi:
-Jika `nilaiSensor `sama dengan `1`, maka cetak teks "Sudah Malam".
-Jika tidak, cetak teks "Sudah Pagi".
+Bagan flowchart di atas memiliki makna yang jika diterjemahkan dalam bahasa manusia akan berbunyi:
+
+1. Periksa apakah `nilaiSensor` sama dengan `1`,
+2. Jika `nilaiSensor` sama dengan 1, maka cetak teks "Sudah Malam".
+3. Jika `nilaiSensor` tidak sama dengan 1, cetak teks "Sudah Pagi".
+4. Apabila sudah mencetak teks "Sudah Pagi" atau "Sudah Malam" (tergantung kondisi mana yang terpenuhi), periksa apakah Arduino Nano masih menyala atau tidak.
+5. Jika Arduino Nano masih menyala, maka kembali lagi ke nomor 1, yakni memeriksa apakah `nilaiSensor` sama dengan 1.
+6. Jika Arduino Nano sudah padam, maka program akan berhenti.
 
 ## Tantangan Tutorial 6
 
