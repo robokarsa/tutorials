@@ -145,7 +145,7 @@ Serial.println(" cm");
 }
 ```
 
-4. Setelah selesai mengetik program, sekarang kita harus menginstall library NewPing. Teman-teman terlebih dahulu harus mengunduh file library NewPing dengan menekan [link ini](../beginner-level/img/img10/NewPing_v1.9.1). Teman-teman akan mendapatkan file .zip dengan nama file seperti pada gambar di bawah ini.
+4. Setelah selesai mengetik program, sekarang kita harus menginstall library NewPing. Teman-teman terlebih dahulu harus mengunduh file library NewPing dengan menekan [link ini](../beginner-level/img/img10/NewPing_v1.9.1.zip). Teman-teman akan mendapatkan file .zip dengan nama file seperti pada gambar di bawah ini.
 
    <p align="center" width="100%">
    <img width="40%" src={require('../beginner-level/img/img10/tutorial-10-install-newping-0.png').default} alt="Arduino Light Sensor Pins"/>
