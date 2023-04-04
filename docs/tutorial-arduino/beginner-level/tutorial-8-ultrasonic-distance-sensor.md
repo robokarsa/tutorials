@@ -121,7 +121,7 @@ Kalau teman-teman merasa belum memenuhi prasyarat yang dibutuhkan, diharapkan un
 
 - Memahami bagaimana memprogram Sensor Jarak Ultrasonik
 - Memahami bagaimana memasukkan rumus matematika ke dalam program
--
+- Memahami urutan prioritas pengerjaan dalam program
 
 </TabItem>
 
@@ -130,7 +130,7 @@ Kalau teman-teman merasa belum memenuhi prasyarat yang dibutuhkan, diharapkan un
 - 1 x Arduino Nano
 - 1 x Kabel USB Arduino Nano
 - 1 x Komputer/Laptop
-- 1 x Jarak
+- 1 x Sensor Jarak
 - 4 x Kabel Jumper Female-Female
 
 </TabItem>
@@ -206,6 +206,7 @@ delayMicroseconds(10);
 digitalWrite(trigPin, LOW);
 
 duration = pulseIn(echoPin, HIGH);
+
 distance = (duration * 0.0343) / 2;
 
 Serial.print("Jarak: ");
@@ -250,9 +251,9 @@ digitalWrite(trigPin, LOW);
 
 duration = pulseIn(echoPin, HIGH);
 
-distance = (duration * 0.034  ) / 2;
+distance = (duration * 0.034) / 2;
 
-Serial.print("Afstand: ");
+Serial.print("Jarak: ");
 Serial.println(distance);
 
 delay(100);
@@ -321,9 +322,9 @@ digitalWrite(trigPin, LOW);
 
 duration = pulseIn(echoPin, HIGH);
 
-distance = (duration * 0.0343) / 2;
+distance = (duration * 0.034) / 2;
 
-Serial.print("Afstand: ");
+Serial.print("Jarak: ");
 Serial.println(distance);
 
 delay(100);
@@ -439,6 +440,8 @@ Namun, bagaimana kita menuliskannya dalam program? Mari kita perhatikan kode pad
 distance = (duration * 0.0343) / 2;
 ```
 
+Simbol _ pada program digunakan untuk menggantikan simbol x (perkalian) dalam program karena bahasa pemrograman tidak mengenali simbol kali sehingga digunakan simbol _ untuk mengganti simbol perkalian.
+
 Ingat kembali, bahwa variabel `duration` sudah menyimpan angka 500 dari kode pada baris 23 sebelumnya. Sehingga secara langsung, kode nya akan menjadi seperti di bawah ini.
 
 ```arduino
@@ -470,3 +473,341 @@ Perhatikan pada baris 28, perintah yang digunakan adalah `println`, jadi begitu 
 Jarak: 8.5
 Jarak: 7.5
 ```
+
+<br/>
+
+## Tantangan Tutorial 8
+
+### Tantangan 1
+
+Tantangan pertama ini akan sedikit membantu teman-teman untuk lebih memperdalam tentang perintah `Serial.print` dan `Serial.println` yang akan sering kita gunakan ke depannya.
+
+Masih ingat dengan kode program yang terletak pada baris 27 dan baris 28? Kita tunjukkan melalui potongan kode di bawah ini jika teman-teman agak malas untuk scroll ke atas.
+
+```arduino
+Serial.print("Jarak: ");
+Serial.println(distance);
+```
+
+Sudah jelas, bukan? bahwa kedua perintah tersebut akan mencetak teks "Jarak: " dan angka yang tersimpan dalam variabel bernama `distance` seperti di bawah ini:
+
+```arduino
+Jarak: 8.5
+Jarak: 7.5
+```
+
+Nah, karena satuan jarak yang kita ukur dalam satuan Centimeter, sekarang bagaimana caranya jika kita ingin menambahkan satuan "cm" setelah angka 8.5 atau 7.5 menjadi seperti contoh di bawah ini:
+
+```arduino
+Jarak: 8.5 Cm
+Jarak: 7.5 Cm
+```
+
+Kita beri petunjuk yaa. Perhatikan baris 27 sampai baris 29 yang diterangi dalam Kode 1, Kode 2, dan Kode 3 di bawah ini. Cobalah mengganti perintah yang ada pada baris 27 sampai baris 29 dengan salah satu dari ketiga kode ini kemudian upload dan lihatlah hasilnya pada Serial Monitor.
+
+Kira-kira kode nomor berapakah yang paling mendekati dengan contoh di atas? Kode 1, Kode 2, atau Kode 3?
+
+<Tabs className="unique-tabs">
+<TabItem value="Kode 1">
+
+```arduino showLineNumbers
+const int trigPin = 8;
+const int echoPin = 9;
+
+float duration;
+float distance;
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(trigPin, LOW);
+delayMicroseconds(2);
+
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+
+duration = pulseIn(echoPin, HIGH);
+
+distance = (duration * 0.034) / 2;
+
+//highlight-start
+Serial.print("Jarak: ");
+Serial.println(distance);
+Serial.print("Cm")
+//highlight-end
+
+delay(100);
+}
+```
+
+</TabItem>
+
+<TabItem value="Kode 2">
+
+```arduino showLineNumbers
+const int trigPin = 8;
+const int echoPin = 9;
+
+float duration;
+float distance;
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(trigPin, LOW);
+delayMicroseconds(2);
+
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+
+duration = pulseIn(echoPin, HIGH);
+
+distance = (duration * 0.034) / 2;
+
+//highlight-start
+Serial.print("Jarak: ");
+Serial.print(distance);
+Serial.println("Cm")
+//highlight-end
+
+delay(100);
+}
+```
+
+</TabItem>
+
+<TabItem value="Kode 3">
+
+```arduino showLineNumbers
+const int trigPin = 8;
+const int echoPin = 9;
+
+float duration;
+float distance;
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(trigPin, LOW);
+delayMicroseconds(2);
+
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+
+duration = pulseIn(echoPin, HIGH);
+
+distance = (duration * 0.034) / 2;
+
+//highlight-start
+Serial.print("Jarak: ");
+Serial.print(distance);
+Serial.println(" Cm")
+//highlight-end
+
+delay(100);
+}
+```
+
+</TabItem>
+</Tabs>
+
+Yap, kalau teman-teman berhasil menemukan jawaban nya, perhatikan bahwa perintah `Serial.println` diletakkan pada paling terkahir setelah teks " Cm" di tulis.
+
+Karena kita ingin membuat baris baru di bawah untuk hasil pengukuran baru setelah hasil pengukuran jarak sebelumnya ditulis pada baris di atasnya sebelumnya.
+
+Kalau teman-teman masih penasaran. Lihatlah apa yang terjadi jika kita menghapus karakter spasi pada teks " Cm" menjadi "Cm".
+
+### Tantangan 2
+
+Setelah memahami lebih dalam mengenai perintah `Serial.print` dan `Serial.println` melalui Tantangan 2 tadi, kali ini kita mau memberi tantangan yang bisa memperdalam pengetahuan teman-teman pada urutan prioritas matematika.
+
+Masihkah teman-teman ingat tentang urutan prioritas dalam pengerjaan sebuah soal matematika? Seperti pada contoh di bawah ini:
+
+<p align="center" width="100%">
+
+(21x2+4)/2
+
+</p>
+
+Jika kita hitung dengan kalkulator, maka hasilnya pasti 24. Jika kita perhatikan tanda kurung di pada soal matematika di atas, itu berarti kita harus menyelesaikan perhitungan yang ada dalam tanda kurung tersebut terlebih dahulu barulah kemudian dibagi dengan 2.
+
+Nah, dalam bahasa pemrograman juga berlaku aturan tersebut. Seperti yang kita temukan pada baris 25 dalam program Tutorial 8 di bawah ini:
+
+```arduino
+distance = (duration * 0.034) / 2;
+```
+
+Anggaplah variabel `duration` menyimpan nilai 500, maka kita harus menyelesaikan perkalian antara 500 dengan dengan angka 0.0034. Mengapa demikian? hal ini karena perkalian antara 500 dengan 0.034 berada dalam tanda kurung sehingga merupakan prioritas yang harus dikerjakan terlebih dahulu.
+
+Hasil perkalian antara 500 dengan 0.034 kemudian dibagi dengan 2. Barulah hasil keseluruhannya disimpan dalam variabel `distance`.
+
+Nah, setelah memahami prioritas pengerjaan dalam bahasa pemrograman, sekarang kita akan mencoba hal baru menggunakan aturan prioritas tadi. Jika teman-teman perhatikan baris program yang diterangi di bawah ini:
+
+```arduino title="TUTORIAL_8_SENSOR_JARAK.ino" showLineNumbers
+const int trigPin = 8;
+const int echoPin = 9;
+
+float duration;
+float distance;
+
+void setup() {
+   // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(trigPin, LOW);
+delayMicroseconds(2);
+
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+
+//highlight-start
+duration = pulseIn(echoPin, HIGH);
+//highlight-end
+
+distance = (duration * 0.034) / 2;
+
+Serial.print("Jarak: ");
+Serial.print(distance);
+Serial.println(" Cm")
+
+delay(100);
+}
+```
+
+Jika teman-teman masih ingat, perintah pada baris 23 tersebut digunakan untuk menghitung lama waktu suara ultrasonik merambat di udara, kemudian menyimpannya ke dalam variabel `duration`.
+
+Nah, kali ini, bagaimana jika kita tidak menyimpannya ke dalam variabel `duration`, melainkan langsung memasukkannya ke dalam persamaan pada baris 25? Bagaimana caranya?
+
+Kita akan menerapkan aturan urutan prioritas yang telah dijelaskan sebelumnya ke dalam program seperti ini:
+
+```arduino
+distance = ( (masukkan perintah untuk menghitung waktu rambat suara utrasonik disini) * 0.034) / 2;
+```
+
+Perhatikan bahwa kita mengapitnya dalam tanda kurung ( ) untuk menyatakan bahwa kita harus menghitung waktunya terlebih dahulu sebelum dilakukan perkalian dengan 0.034. Kira-kira apa perintah yang kita gunakan untuk menghitung waktu rambat suara ultrasonik yang dimaksud dalam tanda kurung tersebut?
+
+Jawabannya ada pada baris 23, yakni `pulseIn(echoPin, HIGH)`. Kita masukkan perintah tersebut ke dalam tanda kurung tersebut sehingga akan menjadi seperti pada di bawah ini:
+
+```arduino
+distance = ( (pulseIn(echoPin, HIGH)) * 0.034) / 2;
+```
+
+Kemudian kita akan menghapus seluruh kode pada baris 4 karena kita tidak memerlukan variabel `duration` lagi dan juga menghapus seluruh kode pada baris 23 karena kita sudah memindahkan perintah untuk membaca waktu tempuh suara ultrasonik ke dalam persamaan. Sehingga keseluruhan programnya akan menjadi seperti di bawah ini:
+
+<Tabs className="unique-tabs">
+<TabItem value="Sebelum dipindahkan dan dihapus">
+
+```arduino showLineNumbers
+const int trigPin = 8;
+const int echoPin = 9;
+
+//highlight-start
+float duration;
+//highlight-end
+float distance;
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(trigPin, LOW);
+delayMicroseconds(2);
+
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+
+//highlight-start
+duration = pulseIn(echoPin, HIGH);
+
+distance = (duration * 0.034) / 2;
+//highlight-end
+
+Serial.print("Jarak: ");
+Serial.print(distance);
+Serial.println(" Cm")
+
+delay(100);
+}
+```
+
+</TabItem>
+
+<TabItem value="Setelah dipindahkan dan dihapus">
+
+```arduino showLineNumbers
+const int trigPin = 8;
+const int echoPin = 9;
+
+float distance;
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(trigPin, LOW);
+delayMicroseconds(2);
+
+digitalWrite(trigPin, HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin, LOW);
+
+//highlight-start
+distance = ( (pulseIn(echoPin, HIGH)) * 0.034) / 2;
+//highlight-end
+
+Serial.print("Jarak: ");
+Serial.print(distance);
+Serial.println(" Cm")
+
+delay(100);
+}
+```
+
+</TabItem>
+</Tabs>
+
+Cobalah teman-teman ketik dan upload program di atas, kemudian lihat hasilnya pada Serial Monitor. Kita akan mendapati hasilnya sama seperti sebelum dipindahkan. Namun kode program kita menjadi lebih singkat bukan?
+
+Pada program yang telah dimodifikasi tersebut, pada baris 22, karena perintah `pulseIn(echoPin, HIGH)` berada dalam tanda kurung, maka perintah tersebut dieksekusi terlebih dahulu. Kemudian hasil perintah tersebut dikali dengan angka 0.034.
+
+Kini teman-teman telah mengetahui tentang urutan prioritas pengerjaan matematika dalam bahasa pemrograman menggunakan tanda kurung () dalam sebuah persamaan matematika.
+
+Ini penting untuk diketahui agar teman-teman tidak ambigu dalam penggunaan tanda kurung () karena kita akan sering menggunakan tanda kurung, baik untuk menentukan urutan prioritas pengerjaan matematika ataupun untuk hal lainnya seperti membuat fungsi sendiri, yang mana akan kita pelajari dalam tutorial 9 berikutnya.
