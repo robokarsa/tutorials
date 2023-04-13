@@ -123,9 +123,9 @@ Jika gambar Wiring Diagram di atas kurang jelas, teman-teman bisa gunakan tabel 
 
 | Potensiometer | Arduino Nano Expansion Board |
 | :-----------: | :--------------------------: |
-|    Pin OUT    |            Pin G             |
-|    Pin GND    |            Pin 4             |
-|    Pin VCC    |            Pin 5             |
+|    Pin OUT    |            Pin A0            |
+|    Pin GND    |            Pin G             |
+|    Pin VCC    |            Pin V             |
 
 :::danger Peringatan
 Sebelum menyalakan Arduino Nano, harap periksa kembali rangkaiannya. Apakah sudah sama dengan Wiring Diagram?
