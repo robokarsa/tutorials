@@ -149,7 +149,7 @@ const config = {
       },
       announcementBar: {
         id: "Update Date",
-        content: "Update Terakhir: 4 April 2023",
+        content: "Update Terakhir: 14 April 2023",
         backgroundColor: "#4a96de",
         textColor: "#ffff",
         isCloseable: false,
