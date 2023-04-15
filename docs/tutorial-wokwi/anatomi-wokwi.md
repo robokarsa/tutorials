@@ -152,10 +152,12 @@ alt="Ultrasonic Sensors"
 
 </p>
 
+Jika teman-teman meng-klik ikon panah bawah tersebut, akan muncul beberapa pilihan seperti pada gambar di bawah ini.
+
 <p align="center" width="100%">
 
 <img
-width="100%"
+width="50%"
 src={require('./img/wokwi-start-8.png').default}
 alt="Ultrasonic Sensors"
 />
@@ -215,6 +217,18 @@ Singkatnya, tombol ini memuat beberapa opsi seperti memperbesar, atau memperkeci
 <img
 width="10%"
 src={require('./img/wokwi-start-11.png').default}
+alt="Ultrasonic Sensors"
+/>
+
+</p>
+
+Jika teman-teman meng-klik tombol titik tiga tersebut, teman-teman akan mendapati beberapa pilihan seperti pada gambar di bawah ini
+
+<p align="center" width="100%">
+
+<img
+width="50%"
+src={require('./img/wokwi-start-12.png').default}
 alt="Ultrasonic Sensors"
 />
 
