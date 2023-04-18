@@ -185,7 +185,7 @@ Baik, setelah diberi tahu mengenai apa yang akan kita lakukan pada Tutorial pert
 
    Oops, jika terlalu kecil, teman-teman bisa melihatnya disini saja
 
-   ```arduino showLineNumbers
+   ```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
    void setup() {
    // put your setup code here, to run once:
    pinMode(13, OUTPUT);
@@ -232,3 +232,134 @@ Baik, setelah diberi tahu mengenai apa yang akan kita lakukan pada Tutorial pert
    />
 
    </p>
+
+## Penjelasan Program
+
+Apabila teman-teman berhasil menjalankan simulasi dan lampu LED pada Arduino Nano berkedip setiap satu detik, sekarang saat nya masuk ke topik **Penjelasan Program**.
+
+Pastinya teman-teman penasaran bagaimaana program yang kita tulis bisa membuat lampu LED pada Arduino Nano berkedip setiap satu detik. Di bawah ini adalah potongan program yang kita gunakan pada tutorial pertama kita.
+
+```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+pinMode(13, OUTPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(13, HIGH);
+delay(1000);
+digitalWrite(13, LOW);
+delay(1000);
+}
+```
+
+Sketch program kosong Arduino akan selalu berisi dua buah fungsi utama, yakni fungsi `setup()` dan fungsi `loop()` berikut ini:
+
+```arduino title="sketch kosong" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+
+}
+```
+
+Fungsi setup() dimulai dari baris 1 yang ditandai dengan simbol kurawal buka **{** dan diakhiri pada baris 4 yang ditandai dengan tanda kurawal tutup **}**.
+
+Tanda kurawal buka **{** dan tanda kurawal tutup berfungsi untuk membungkus **}** semua kode program milik fungsi `setup()`. Pada sketch program kosong di atas, dalam fungsi `setup()` hanya terdapat komentar `// put your setup code here, to run once:` yang dibungkus oleh tanda kurawal buka dan tanda kurawal tutup.
+
+Begitu pula, pada fungsi `loop()` dalam sketch kosong di atas, juga memiliki tanda kurawal buka dan tanda kurawal tutup yang membungkus komentar `// put your main code here, to run repeatedly:`.
+
+Sebagai catatan awal, semua baris yang dimulai dengan simbol // merupakan baris komentar. Dan semua komentar yang kita buat hanya bisa dilihat oleh manusia saja, sedangkan Arduino tidak bisa melihat ataupun membaca komentar tersebut, sehingga seolah-olah baris komentar tidak dianggap oleh Arduino. Nantinya kita akan membuktikan tentang ini pada Tantangan Tutorial 1.
+
+Balik ke program utama yang kita gunakan yang ditunjukkan pada potongan di bawah ini:
+
+```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+pinMode(13, OUTPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(13, HIGH);
+delay(1000);
+digitalWrite(13, LOW);
+delay(1000);
+}
+```
+
+Fungsi `setup()` memiliki perintah `pinMode(13, OUTPUT)` pada baris 3. Perintah `pinMode()` tersusun dari dua buah argumen, yakni nomor pin, dan mode pin dengan cara penulisan argumennya seperti berikut: `pinMode(nomor pin, mode pin)`.
+
+Jika kita menggunakan contoh perintah pada baris 3 program di atas, bisakah teman-teman menebak argumennya apa saja?
+
+Jika teman-teman menebak argumennya sebagai berikut: `13` adalah argumen nomor pin, dan `OUTPUT` adalah argumen mode pin. Maka tebakan teman-teman benar.
+
+Kita menggunakan angka 13 karena lampu LED yang program agar berkedip setiap 1 detik terhubung secara langsung dengan pin Arduino Nano nomor 13. Kemudian mode pin yang kita gunakan adalah `OUTPUT`, yakni kita memberika keluaran berupa sinyal tegangan 5 Volt untuk menyalakan lampu LED pada Arduino Nano.
+
+Perlu diingat, beberapa perintah dalam pemrograman Arduino menggunakan bahasa Inggris. Misalnya, OUTPUT, jika diartikan ke bahasa Indonesia akan berarti `KELUARAN`. Jika sebuah pin diatur agar memiliki mode `KELUARAN`, anggaplah seperti keran yang mengeluarkan air yang sangat deras. Namun dalam Arduino Nano, pin dengan mode `KELUARAN` akan mengeluarkan tegangan 5 Volt.
+
+Selain itu ada juga mode pin INPUT, yang jika diartikan sebagai ke bahasa Indonesia akan berarti `MASUKAN`. Jika sebuah pin diatur agar memiliki mode `MASUKAN`, anggaplah pin tersebut seperti lubang tempat masuknya air ke dalam botol. Nantinya, kita akan mempelajari lebih lanjut tentang mode pin `INPUT` pada tutorial berikutnya.
+
+Selanjutnya, kita akan membahas fungsi `loop()`.
+
+```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+pinMode(13, OUTPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(13, HIGH);
+delay(1000);
+digitalWrite(13, LOW);
+delay(1000);
+}
+```
+
+fungsi `loop()` dimulai dari baris 6 karena tanda kurawal buka **{** milik fungsi `loop()` berada pada baris 6. Dan diakhiri pada baris 12 karena tanda kurawal tutup **}** milik fungsi `loop()` berada pada baris 12. Ingat kembali, tanda kurawal buka dan tanda kurawal tutup ini berguna untuk membungkus perintah milik suatu fungsi, dalam hal ini membungkus perintah milik fungsi `loop()`.
+
+Nah, kira-kira bisakah teman-teman menebak yang mana saja perintah milik fungsi `loop()` yang dibungkus oleh tanda kurawal tersebut?
+
+Benar, perintah milik fungsi `loop()` yang dibungkus oleh tanda kurawal tersebut berada pada baris 7 hingga baris 11.
+
+Pada baris 7 terdapat sebuah komentar. Komentar tersebut digunakan hanya sebagai catatan saja.
+
+Selanjutnya, pada baris 8, terdapat perintah `digitalWrite(13, HIGH)`. Perintah `digitalWrite()` memiliki dua buah argumen, yakni nomor pin dan logika.
+
+Jika kita menggunakan contoh pada perintah yang terletak pada baris 8, yakni perintah `digitalWrite(13, HIGH)`, perintah tersebut memiliki dua buah argumen, yakni nomor pin dan logika. Bisakah teman-teman menebak argumen nomor pin dan logikanya apa saja? Benar, nomor pin nya adalah `13` dan logika nya adalah `HIGH`.
+
+Disini kita menggunakan nomor pin 13 karena kita akan menyalakan lampu LED pada Arduino Nano yang terhubung dengan pin nomor 13 Arduino Nano. Kemudian kita menggunakan logika `HIGH` karena dalam bahasa mesin, logika HIGH itu berarti menyala dan logika LOW itu berarti mati. Mengapa demikian? Karena pada logika HIGH dalam Arduino Nano, logika HIGH berarti memberikan tegangan 5 Volt sehingga lampu LED bisa menyala, sedangkan jika kita memberikan logika LOW, maka Arduino Nano akan memberikan tegangan 0 Volt sehingga lampu LED padam.
+
+Kita juga bisa menggunakan angka 1 dan 0 untuk menggantikan logika HIGH dan LOW. Kita akan mempelajari hal ini lebih lanjut pada Tantangan Tutorial 1 nantinya.
+
+Singkatnya, perintah `digitalWrite(13, HIGH)` pada baris 8 akan memberikan tegangan 5 Volt ke pin 13, sehingga menyebabkan lampu LED pada Arduino Nano akan menyala.
+
+Kemudian pada baris 9 terdapat perintah `delay(1000)` untuk menunda waktu selama 1 detik. perintah `delay()` hanya memiliki satu buah argumen, yakni waktu dalam mili sekon. Jika mengambil contoh pada baris 9, perintah `delay(1000)`, memiliki argumen sebesar 1000 mili sekon yang setara dengan 1 detik.
+
+Jadi, apabila kita ingin menunda waktunya selama 1 detik, maka kita bisa memasukkan 1000 mili sekon. Jika kita ingin menunda selama 2 detik, kita bisa memasukkan 2000 mili sekon. Jika kita ingin menunda selama 1.5 detik, kita bisa memasukkan 1500 detik.
+
+Perintah `delay()` ini akan menunda eksekusi program selama waktu yang telah ditentukan dalam argumennya. Jika misalnya pada baris 8 sebelumnya, kita telah menyalakan lampu LED dengan perintah `digitalWrite()`, kemudian bertemu dengan perintah `delay(1000)` pada baris berikutnya, maka lampu LED akan menyala selama 1 detik.
+
+Singkatnya, anggaplah perintah `delay(1000)` menjalankan proses hitung mundur dari 1000 sampai habis. Begitu proses hitung mundurnya selesai, maka Arduino Nano akan menjalankan perintah berikutnya, yakni mematikan lampu LED.
+
+Perintah berikutnya adalah perintah `digitalWrite(13, LOW)` yang berada pada baris 10. Perintah pada baris 10 sama seperti perintah pada baris 8, namun memiliki argumen yang berbeda. Bisakah teman-teman menemukan letak perbedaannya?
+
+Jika pada baris 8, argumen logika yang digunakan adalah `HIGH` karena kita ingin menyalakan lampu LED, maka pada baris 10, argumen logika yang digunakan adalah `LOW` karena kita ingin mematikan lampu LED.
+
+Sederhananya, perintah `digitalWrite(13, LOW)` dengan logika LOW akan memberikan tegangan 0 Volt ke pin 13 yang terhubung ke lampu LED pada Arduino Nano sehingga lampu LED akan menjadi padam.
+
+Begitu perintah `digitalWrite(13, LOW)` selesai dijalankan, yang ditandai dengan padamnya lampu LED kuning pada Arduino Nano, maka Arduino Nano akan lanjut mengeksekusi program pada baris berikutnya, yakni pada baris 11.
+
+Benar, pada baris 11 terdapat perintah `delay(1000)` untuk menunda waktu dengan cara memerintahkan Arduino Nano untuk menghitung mundur dari angka 1000 sampai 0.
+
+Karena pada baris sebelumnya, kita memberikan logika `LOW` pada pin 13 sehingga membuat lampu LED pada Arduino Nano padam, kemudian diikuti perintah `delay(1000)` pada baris berikutnya, sehingga akan membuat lampu LED padam selama 1 detik. Ingat kembali bahwa 1000 mili sekon setara dengan 1 detik.
+
+Begitu perintah `delay(1000)` pada baris 11 selesai menghitung mundur dari 1000 sampai 0, akan dilanjutkan mengeksekusi baris kode berikutnya. Namun, karena baris kode berikutnya yang ditemui adalah tanda kurawal tutup pada baris 12 milik fungsi `loop()`, maka Arduino Nano akan kembali menjalankan perintah berikutnya dari awal fungsi `loop()` lagi, yakni pada baris 6.
+
+Begitu seterusnya secara berulang-ulang selama simulasi masih dijalankan.
