@@ -363,3 +363,149 @@ Karena pada baris sebelumnya, kita memberikan logika `LOW` pada pin 13 sehingga 
 Begitu perintah `delay(1000)` pada baris 11 selesai menghitung mundur dari 1000 sampai 0, akan dilanjutkan mengeksekusi baris kode berikutnya. Namun, karena baris kode berikutnya yang ditemui adalah tanda kurawal tutup pada baris 12 milik fungsi `loop()`, maka Arduino Nano akan kembali menjalankan perintah berikutnya dari awal fungsi `loop()` lagi, yakni pada baris 6.
 
 Begitu seterusnya secara berulang-ulang selama simulasi masih dijalankan.
+
+## Tantangan Tutorial 1
+
+Karena ini adalah tantangan untuk tutorial Wokwi pertama, kami ingin menyampaikan beberapa pengantar terlebih dahulu. Tantangan yang muncul pada tiap Tutorial dimaksudkan untuk membantu teman-teman memahami lebih dalam lagi tutorial yang sedang dikerjakan. Selain itu juga untuk membuktikan beberapa penjelasan program yang telah diulas pada topik **Penjelasan Program** sebelumnya.
+
+Tantangan yang diberikan nantinya akan berupa tugas atau perintah untuk memodifikasi program asli yang digunakan pada Tutorial yang sedang dikerjakan.
+
+### Tantangan 1
+
+Tantangan pertama ini ditujukan untuk membuktikan bahwa simbol `//` akan membuat sebuah baris kode menjadi tidak terlihat oleh Arduino Nano atau singkatnya, diabaikan oleh Arduino Nano.
+
+Mari kita lihat kembali sketch program yang kita gunakan pada snippet code di bawah ini
+
+```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+pinMode(13, OUTPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(13, HIGH);
+delay(1000);
+digitalWrite(13, LOW);
+delay(1000);
+}
+```
+
+Jika teman-teman menjalankan program di atas pada simulasi Wokwi, tentunya lampu LED pada Arduino nano akan berkedip persis seperti yang telah kita lakukan sebelum Tantangan ini, bukan?
+
+Nah, sekarang, bagaimana jika kita menaruh simbol komentar atau simbol `//` pada baris 10 dan 11. Sehingga program nya akan menjadi seperti pada snippet code di bawah ini:
+
+```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+pinMode(13, OUTPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(13, HIGH);
+delay(1000);
+//digitalWrite(13, LOW);
+//delay(1000);
+}
+```
+
+Setelah memodifikasinya sesuai dengan snippet code di atas, cobalah SAVE kemudian klik tombol **Start the simulation**. Lihat apa yang akan terjadi pada lampu LED Arduino Nano.
+
+Pastinya lampu LED tersebut akan menyala terus menerus dan tidak padam. Mengapa?
+
+Karena, meskipun perintah untuk mematikan lampu LED setelah 1 detik dengan menggunakan perintah `digitalWrite(13, LOW)` pada baris 10 masih ada dan masih bisa kita lihat pada program, namun karena kita menambahkan simbol `//` di depan baris perintah tersebut membuat baris 10 dan baris 11 tersebut menjadi tidak terlihat oleh Arduino Nano sehingga kedua baris tersebut akan diabaikan oleh Arduino dan hanya mengeksekusi program pada baris 8 dan 9 saja.
+
+Tindakan menambah simbol `//` di awal baris suatu program disebut "Commenting", atau dalam bahasa Indonesia kita bisa menyebutnya sebagai "Mengomentari".
+
+Selanjutnya, mari kita kembalikan kode program di atas yang telah kita beri komentar sebelumnya.
+
+Sebelumnya kita melakukan Commenting pada baris 10 dan 11 dengan cara meletakkan simbol `//` di awal baris 10 dan 11. Sekarang simbol `//` tersebut kita hapus dan menjadi seperti pada snippet code di bawah ini:
+
+```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+pinMode(13, OUTPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(13, HIGH);
+delay(1000);
+digitalWrite(13, LOW);
+delay(1000);
+}
+```
+
+Tindakan menghapus simbol `//` yang kita lakukan tadi disebut `Uncomment`, atau jika kita menyebutnya dalam bahasa Indonesia, "Menghapus Komentar".
+
+Nah, selanjutnya, bagaimana kalau kita meng-Comment program di atas pada baris 8 dan 9? Kira-kira apa yang akan terjadi?
+
+Tentunya lampu LED akan pada Arduino Nano akan selalu padam karena satu-satunya perintah yang bisa dilihat dan dieksekusi oleh Arduino Nano adalah perintah untuk mematikan lampu LED dengan kode `digitalWrite(13, LOW)`.
+
+### Tantangan 2
+
+Tantangan Tutorial 1 berikutnya akan membantu teman-teman lebih paham mengenai perintah `delay()` yang kita gunakan untuk menunda atau memberi jeda waktu pada baris program tertentu. Perintah `delay()` ini akan sering kita gunakan pada tutorial berikutnya, sehingga penting untuk dipahami lebih lanjut.
+
+Perlu diingat, perintah `delay()` hanya akan menunda eksekusi program yang berada di atasnya.
+
+Misalnya pada baris 8, terdapat kode perintah `digitalWrite(13, HIGH)` untuk menyalakan lampu, kemudian tepat di bawah perintah untuk menyalakan lampu tersebut, yakni pada baris 9 terdapat kode perintah `delay(1000)` yang akan memberi jeda waktu kode perintah di atasnya.
+
+Sehingga kode pada baris 8 akan dieksekusi selama 1 detik (1000 mili sekon = 1 detik). Setelah kode perintah `delay(1000)` pada baris 9 selesai menjeda waktu selama 1 detik, maka akan melanjutkan untuk mengeksekusi program pada baris berikutnya.
+
+```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+pinMode(13, OUTPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(13, HIGH);
+delay(1000);
+digitalWrite(13, LOW);
+delay(1000);
+}
+```
+
+Nah, pada Tantangan 2 ini, kita akan mencoba memodifikasi nilai yang dimasukkan pada perintah `delay()`. Ingat kembali bahwa satuan yang digunakan dalam perintah `delay()` adalah mili sekon. Jika kita memasukkan 1000, maka itu berarti kita memasukkan 1 detik. Cobalah memasukkan nilai `delay()` yang digunakan seperti pada snippet program di bawah ini:
+
+```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+pinMode(13, OUTPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(13, HIGH); //nyalakan lampu
+delay(5000);            //tunda 5 detik
+digitalWrite(13, LOW);  //matikan lampu
+delay(5000);            //tunda 5 detik
+}
+```
+
+Kemudian tekan tombol hijau "Start the simulation" pada area diagram editor untuk menjalankan program tersebut. Cobalah amati berapa lama lampu LED pada Arduino menyala dan mati.
+
+Tentu saja lampu LED pada Arduino akan menyala selama 5 detik dan padam selama 5 detik juga karena kita memasukkan nilai 5000 pada kode perintah `delay()`.
+
+Selanjutnya, untuk memahami urutan perintah program Arduino, kita akan mencoba untuk menyalakan lampu selama 5 detik, kemudian padam selama 1 detik. Setelah padam selama 1 detik, akan menyala kembali selama 5 detik. Ikutilah terlebih dahulu program yang ditunjukkan oleh snippet program di bawah ini:
+
+```arduino title="robokarsa_wokwi_tutorial_1.ino" showLineNumbers
+void setup() {
+// put your setup code here, to run once:
+pinMode(13, OUTPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(13, HIGH); //nyalakan lampu
+delay(5000);            //tunda 5 detik
+digitalWrite(13, LOW);  //matikan lampu
+delay(1000);            //tunda 1 detik
+}
+```
+
+Cobalah jalankan simulasi dan amati dengan menghitung berapa lama lampu LED padam dan menyala untuk mengetahui apakah hasilnya sesuai dengan program yang teman-teman buat.
+
+Cobalah untuk bermain dengan nilai delay yang berbeda.
